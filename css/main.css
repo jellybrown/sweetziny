@@ -1,0 +1,229 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'SCDream3';
+  src: url("../fonts/SCDream3.otf"); }
+
+@font-face {
+  font-family: 'SCDream5';
+  src: url("../fonts/SCDream5.otf"); }
+
+@font-face {
+  font-family: 'SCDream7';
+  src: url("../fonts/SCDream7.otf"); }
+
+@font-face {
+  font-family: 'SCDream8';
+  src: url("../fonts/SCDream8.otf"); }
+
+/* COMMON */
+body {
+  font-family: 'SCDream3';
+  background: #158467;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 30px; }
+
+section {
+  min-height: 100vh;
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 100px; }
+
+.container {
+  width: 1080px;
+  margin: 0 auto; }
+
+/* HEADER */
+header {
+  height: 70px;
+  width: 100%;
+  background: #158467;
+  padding: 20px 0;
+  position: fixed;
+  display: none; }
+  header .container {
+    display: flex;
+    justify-content: space-between; }
+  header .menus li:last-child {
+    margin-right: 0; }
+  header .menus li {
+    display: inline-block;
+    margin-right: 10px; }
+    header .menus li a {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+      display: block;
+      background: #197163;
+      border-radius: 12px;
+      padding: 12px 15px; }
+
+/* HOME */
+.home {
+  background: linear-gradient(to right, #158467, #158467 50%, #197163 50%);
+  position: relative; }
+  .home .main_letter {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+    .home .main_letter span:first-child {
+      color: #197163; }
+    .home .main_letter span:first-child:after {
+      content: "";
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      left: 0;
+      top: 0; }
+    .home .main_letter span:last-child {
+      color: #158467; }
+    .home .main_letter span:last-child:after {
+      content: "";
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      left: 0;
+      bottom: -5px; }
+    .home .main_letter span {
+      font-family: 'SCDream8';
+      font-size: 60px;
+      position: relative; }
+  .home p {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px; }
+
+/* INTRO */
+.introduce .intro_contents {
+  /* 마지막 intro 부분만 스타일 다름 */ }
+  .introduce .intro_contents .intro {
+    margin-bottom: 70px; }
+    .introduce .intro_contents .intro .question a {
+      font-family: 'SCDream7';
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 50px; }
+    .introduce .intro_contents .intro .answer.active {
+      display: block; }
+    .introduce .intro_contents .intro .answer {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 36px;
+      line-height: 56px;
+      letter-spacing: -1px;
+      margin-top: 30px;
+      display: none;
+      padding-left: 57px; }
+      .introduce .intro_contents .intro .answer span {
+        margin-right: 5px; }
+  .introduce .intro_contents .intro.third .answer {
+    padding-left: 70px;
+    margin-top: 40px; }
+    .introduce .intro_contents .intro.third .answer .ziny {
+      margin-right: 20px;
+      display: inline-block; }
+      .introduce .intro_contents .intro.third .answer .ziny .greenbox {
+        color: #fff;
+        background: #197163;
+        padding: 6px 20px; }
+    .introduce .intro_contents .intro.third .answer .certification {
+      display: inline-block; }
+      .introduce .intro_contents .intro.third .answer .certification .cert_wrapper {
+        position: relative;
+        display: inline-block; }
+        .introduce .intro_contents .intro.third .answer .certification .cert_wrapper .cert_name {
+          position: absolute;
+          left: 0;
+          top: -7px;
+          width: 150px;
+          opacity: 0.3; }
+          .introduce .intro_contents .intro.third .answer .certification .cert_wrapper .cert_name p {
+            font-size: 18px;
+            line-height: 26px; }
+
+/* GALLERY */
+.gallery {
+  display: flex;
+  justify-content: center; }
+  .gallery .gall_content:last-child {
+    margin-right: 0; }
+  .gallery .gall_content:nth-child(2) .box {
+    border-radius: 25px; }
+  .gallery .gall_content {
+    display: inline-block;
+    margin-right: 80px;
+    text-align: center; }
+    .gallery .gall_content h3 {
+      font-family: 'SCDream5';
+      margin-bottom: 80px;
+      position: relative; }
+    .gallery .gall_content h3:after {
+      content: "";
+      width: 100%;
+      height: 3px;
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.1); }
+    .gallery .gall_content .site_link {
+      width: 300px;
+      height: 450px;
+      display: block; }
+    .gallery .gall_content .box {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 25px;
+      position: relative;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); }
+      .gallery .gall_content .box .preview {
+        position: relative;
+        width: 100%;
+        height: 100%; }
+        .gallery .gall_content .box .preview img {
+          position: absolute;
+          left: 50%;
+          top: 53%;
+          transform: translate(-50%, -50%);
+          width: 400px; }
+      .gallery .gall_content .box .desc {
+        position: absolute;
+        left: 0;
+        bottom: 30px;
+        z-index: 3;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transition: 0.3s; }
+        .gallery .gall_content .box .desc p {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 26px;
+          line-height: 40px; }
+      .gallery .gall_content .box .black {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0.3;
+        transition: 0.3s; }
+    .gallery .gall_content .box:hover img {
+      animation: bigger 2s ease-out forwards;
+      animation-delay: 0.2s; }
+    .gallery .gall_content .box:hover .desc {
+      opacity: 1; }
+    .gallery .gall_content .box:hover .black {
+      opacity: 1; }
+
+@keyframes bigger {
+  0% {
+    width: 400px; }
+  100% {
+    width: 700px; } }
+
+/* CONTACT */
+/* FOOTER */
