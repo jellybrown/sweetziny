@@ -38,7 +38,8 @@ section {
     min-height: 100vh;
     box-sizing: border-box;
     width: 100%;
-    padding-top: 100px;
+    padding-top: 180px;
+
 }
 
 .container {
@@ -47,36 +48,61 @@ section {
 }
 
 /* HEADER */
+header.active {
+    top: 0;
+}
+
 header {
-    height: 70px;
+    height: 80px;
     width: 100%;
     background: $mainColor;
-    padding: 20px 0;
+    z-index: 4;
+    top: -100px;
     position: fixed;
-    display: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.4s;
 
     .container {
         display: flex;
         justify-content: space-between;
     }
 
-    h1 {}
+    h1 {
+        line-height: 80px;
+        cursor: pointer;
+
+        img {
+            width: 70%;
+        }
+    }
 
     .menus {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+
         li:last-child {
             margin-right: 0;
         }
 
         li {
             display: inline-block;
-            margin-right: 10px;
+            margin-right: 20px;
+
+            a.active {
+                @include font($size:16px, $opacity:1);
+            }
 
             a {
-                @include font($size:16px, $opacity:0.6);
+                @include font($size:16px, $opacity:0.4);
                 display: block;
                 background: $subColor;
                 border-radius: 12px;
                 padding: 12px 15px;
+                transition: 0.5s;
+
             }
         }
     }
@@ -141,26 +167,46 @@ header {
 
 /* INTRO */
 .introduce {
+
+    height: 150vh;
+
     .intro_contents {
+        .intro.second.active .answer {
+            height: 250px;
+        }
+
+        .intro.active {
+            .question a {
+                @include font($size:50px, $opacity:1);
+            }
+
+            .answer {
+                height: 120px;
+                visibility: visible;
+
+            }
+        }
+
         .intro {
             margin-bottom: 70px;
+
 
             .question a {
                 font-family: 'SCDream7';
                 @include font($size:50px, $opacity:0.8);
             }
 
-            .answer.active {
-                display: block;
-            }
 
             .answer {
                 @include font($size:36px, $opacity:0.7);
                 line-height: 56px;
                 letter-spacing: -1px;
                 margin-top: 30px;
-                display: none;
+                transition: 0.5s;
                 padding-left: 57px;
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
 
                 span {
                     margin-right: 5px;
@@ -188,22 +234,43 @@ header {
                 .certification {
                     display: inline-block;
 
+                    .cert_wrapper:hover {
+
+
+                        .cert_name {
+                            opacity: 0.4;
+                            visibility: visible;
+                        }
+                    }
 
                     .cert_wrapper {
                         position: relative;
                         display: inline-block;
 
 
+                        .cert_more {
+                            opacity: 1;
+
+                        }
+
                         .cert_name {
+                            visibility: hidden;
                             position: absolute;
-                            left: 0;
-                            top: -7px;
-                            width: 150px;
-                            opacity: 0.3;
+                            left: 52px;
+                            top: 7px;
+                            width: 160px;
+                            opacity: 0;
+                            margin-left: 10px;
+
+
+
 
                             p {
-                                font-size: 18px;
-                                line-height: 26px;
+                                font-weight: bold;
+                                font-size: 17px;
+                                letter-spacing: 0;
+                                line-height: 22px;
+                                padding-left: 5px;
 
                             }
                         }
@@ -226,7 +293,7 @@ header {
     }
 
     .gall_content:nth-child(2) .box {
-        border-radius: 25px;
+        border-radius: 15px;
     }
 
     .gall_content {
@@ -236,7 +303,7 @@ header {
 
         h3 {
             font-family: 'SCDream5';
-            margin-bottom: 80px;
+            margin-bottom: 60px;
 
             position: relative;
 
@@ -246,10 +313,10 @@ header {
         h3:after {
             content: "";
             width: 100%;
-            height: 3px;
+            height: 1px;
             position: absolute;
             left: 50%;
-            bottom: -15px;
+            bottom: -20px;
             transform: translateX(-50%);
 
             background: rgba(255, 255, 255, 0.1);
@@ -266,7 +333,7 @@ header {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            border-radius: 25px;
+            border-radius: 15px;
             position: relative;
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 
@@ -342,5 +409,290 @@ header {
 }
 
 /* CONTACT */
+.contact {
+    height: 120vh;
+    text-align: center;
+
+    .contact_me {
+
+        margin-top: 200px;
+        margin-bottom: 50px;
+
+        p {
+            line-height: 50px;
+        }
+    }
+
+    .copy_btn {
+        border: none;
+        padding: 20px 35px;
+        color: #fff;
+        background: $subColor;
+        font-family: 'SCDream7';
+        @include font($size:22px, $opacity:0.4);
+        border-radius: 4px;
+        transition: 0.3s;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .copy_btn:hover {
+        background: #166659;
+    }
+
+    .copy_btn:focus {
+        background: #166659;
+        color: rgba(255, 255, 255, 0.7);
+        box-shadow: none;
+    }
+}
 
 /* FOOTER */
+footer {
+    width: 100%;
+    padding: 30px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    p {
+        @include font($size:15px, $opacity:0.4);
+        line-height: 20px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width:1140px) {
+    .container {
+        width: 980px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .gallery .gallery_contents {
+        display: flex;
+        justify-content: space-around;
+        width: 95%;
+    }
+
+    .gallery .gall_content {
+        margin-right: 0;
+        width: 33%;
+    }
+}
+
+@media (max-width:980px) {
+    .container {
+        width: 85%;
+    }
+
+    .introduce .intro_contents .intro .question a {
+        font-size: 35px;
+    }
+
+    .introduce .intro_contents .intro.active .question a {
+        font-size: 35px;
+    }
+
+
+    .introduce .intro_contents .intro .answer p {
+        font-size: 30px;
+    }
+
+    .introduce .intro_contents .intro.third .answer {
+        padding-left: 0;
+    }
+
+    .introduce .intro_contents .intro.third .answer .certification .cert_wrapper .cert_name {
+        display: block;
+        visibility: visible;
+        overflow: visible;
+        opacity: 0.4;
+    }
+
+    .gallery .gall_content .box {
+        width: 85%;
+        height: 86%;
+    }
+
+}
+
+@media (max-width:480px) {
+    .home .main_letter span:first-child:after {
+        top: -6px;
+    }
+
+    .home .main_letter span {
+        font-size: 40px;
+    }
+
+    .home p {
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .gallery .gall_content .site_link {
+        width: 100%;
+    }
+
+    header {
+        height: 60px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    header .container {
+        height: 100%;
+    }
+
+    header h1 {
+        display: none;
+    }
+
+    header .menus {
+        justify-content: center;
+    }
+
+    header .menus li:last-child {
+        margin-right: 0;
+    }
+
+    header .menus li a {
+        font-size: 15px;
+    }
+
+    header .menus li a.active {
+        font-size: 15px;
+    }
+
+    .introduce {
+        height: 130vh;
+
+    }
+
+    .introduce .intro_contents .intro {
+        margin-bottom: 50px;
+    }
+
+    .introduce .intro_contents .intro.active .question a {
+        font-size: 23px;
+    }
+
+    .introduce .intro_contents .intro .question a {
+        font-size: 23px;
+    }
+
+    .introduce .intro_contents .intro .answer {
+        padding-left: 7px;
+    }
+
+    .introduce .intro_contents .intro .answer p {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .introduce .intro_contents .intro.third .answer .ziny {
+        display: block;
+    }
+
+    .introduce .intro_contents .intro.third .answer {
+        padding-left: 8px
+    }
+
+    .introduce .intro_contents .intro .answer {
+        font-size: 25px;
+    }
+
+    .introduce .intro_contents .intro.second.active .answer {
+        height: 155px;
+    }
+
+    .introduce .intro_contents .intro.third.active .answer {
+        height: 140vh;
+    }
+
+    .introduce .intro_contents .intro.third .answer .ziny {
+        position: relative;
+    }
+
+    .introduce .intro_contents .intro.third .answer .ziny .greenbox {
+
+        position: absolute;
+        padding: 0;
+        left: 0;
+        opacity: 0;
+        width: 60px;
+    }
+
+    .introduce .intro_contents .intro.third .answer .certification .cert_wrapper {
+
+        width: 50%;
+        height: 40px;
+    }
+
+    .introduce .intro_contents .intro.third .answer .certification .cert_wrapper .cert_more {
+        display: none;
+
+    }
+
+    .introduce .intro_contents .intro.third .answer .certification .cert_wrapper .cert_name {
+
+        left: 7px;
+        opacity: 0.4;
+        top: 17px;
+        width: 202px;
+
+        p {
+            font-size: 18px;
+            line-height: 28px;
+
+
+        }
+    }
+
+    .introduce .intro_contents .intro.third .answer .certification .cert_wrapper:hover {
+        .cert_name {
+            opacity: 0.4;
+            visibility: visible;
+
+        }
+    }
+
+    .gallery .gallery_contents {
+        flex-wrap: wrap;
+    }
+
+    .gallery .gall_content {
+        width: 75%;
+
+    }
+
+    .gallery .gall_content .box {
+        margin: 0 auto;
+        height: 60%;
+    }
+
+    .contact .contact_me {
+        margin-top: 140px;
+    }
+
+    .contact .contact_me p {
+        font-size: 26px;
+        line-height: 45px;
+    }
+
+    .gallery .gall_content .box .desc {
+        opacity: 0.5;
+    }
+
+    .gallery .gall_content .box .desc p {
+        font-size: 22px;
+        line-height: 34px;
+    }
+
+    .gallery .gall_content .box .black {
+        opacity: 0.9;
+    }
+
+}
